@@ -23,6 +23,18 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "npp_id")
+    private Npp npp;
+
+    public Npp getNpp() {
+        return npp;
+    }
+
+    public void setNpp(Npp npp) {
+        this.npp = npp;
+    }
+
     public Long getId() {
         return id;
     }
