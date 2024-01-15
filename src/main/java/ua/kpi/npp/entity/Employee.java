@@ -37,6 +37,10 @@ public class Employee {
         this.user = user;
     }
 
+    public Employee(String name) {
+        this.name = name;
+    }
+
     public User getUser() {
         return user;
     }
@@ -78,6 +82,16 @@ public class Employee {
         this.position = position;
     }
 
+
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,15 +102,6 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, position, department, npp, user);
+        return Objects.hash(id, name, position, department, user);
     }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
 }

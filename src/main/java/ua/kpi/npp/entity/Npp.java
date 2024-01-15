@@ -2,10 +2,7 @@ package ua.kpi.npp.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "npp")
@@ -112,5 +109,17 @@ public class Npp {
             }
         }
         return employeesByDepartment;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Npp npp)) return false;
+        return Objects.equals(id, npp.id) && Objects.equals(employees, npp.employees) && Objects.equals(users, npp.users) && Objects.equals(role, npp.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, employees, users, role);
     }
 }

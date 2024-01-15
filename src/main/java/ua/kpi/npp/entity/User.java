@@ -2,6 +2,8 @@ package ua.kpi.npp.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -29,6 +31,9 @@ public class User {
 
     @Column(name = "cv", length = 300)
     private String cv;
+
+    public User() {
+    }
 
     public String getCv() {
         return cv;
@@ -91,4 +96,16 @@ public class User {
         this.email = email;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(role, user.role) && Objects.equals(npp, user.npp) && Objects.equals(cv, user.cv);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, email, password, role, npp, cv);
+    }
 }

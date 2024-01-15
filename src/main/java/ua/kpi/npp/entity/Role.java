@@ -17,7 +17,12 @@ public class Role {
     @Column(name = "name", nullable = false, length = 45)
     private String name;
 
+    public Role(String name) {
+        this.name = name;
+    }
 
+    public Role() {
+    }
 
     @OneToMany(mappedBy = "role")
     private Set<Permission> permissions = new LinkedHashSet<>();

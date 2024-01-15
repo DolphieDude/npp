@@ -25,7 +25,8 @@ public class NppService {
         employee.setNpp(npp);
 
         employeeRepository.save(employee);
-        return nppRepository.save(npp);
+        nppRepository.save(npp);
+        return npp;
     }
 
     public Npp startAnNpp(Role role, Set<Employee> employees) {
