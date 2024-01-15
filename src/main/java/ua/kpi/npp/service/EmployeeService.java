@@ -13,9 +13,9 @@ import ua.kpi.npp.repository.UserRepository;
 public class EmployeeService {
     EmployeeRepository employeeRepository;
 
-    public void sayYesToCandidate(Npp npp, User user) {
+    public Employee sayYesToCandidate(Npp npp, User user) {
         Employee newEmployee = new Employee(user);
 
-        employeeRepository.save(newEmployee);
+        return employeeRepository.save(newEmployee);
     }
 }

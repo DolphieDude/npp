@@ -15,7 +15,7 @@ public class UserService {
 
     NppRepository nppRepository;
 
-    public void applyForAJob(User user, Npp npp) {
+    public User applyForAJob(User user, Npp npp) {
         if (!user.getRole().equals(npp.getRole())) {
             throw new AssertionError("Roles mismatch");
         }
@@ -26,7 +26,7 @@ public class UserService {
         npp.addUser(user);
         user.setNpp(npp);
 
-        userRepository.save(user);
         nppRepository.save(npp);
+        return userRepository.save(user);
     }
 }

@@ -20,22 +20,22 @@ public class NppService {
 
     EmployeeRepository employeeRepository;
 
-    public void startAnNpp(Role role, Employee employee) {
+    public Npp startAnNpp(Role role, Employee employee) {
         Npp npp = new Npp(employee, role);
         employee.setNpp(npp);
 
-        nppRepository.save(npp);
         employeeRepository.save(employee);
+        return nppRepository.save(npp);
     }
 
-    public void startAnNpp(Role role, Set<Employee> employees) {
+    public Npp startAnNpp(Role role, Set<Employee> employees) {
         Npp npp = new Npp(employees, role);
         for (Employee employee : employees) {
             employee.setNpp(npp);
         }
 
-        nppRepository.save(npp);
         employeeRepository.saveAll(employees);
+        return nppRepository.save(npp);
     }
 
     public Set<User> filterBySubstringInCV(Npp npp, String requiredSubstring) {
