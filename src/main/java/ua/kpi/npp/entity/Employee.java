@@ -2,6 +2,8 @@ package ua.kpi.npp.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -74,6 +76,19 @@ public class Employee {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id) && Objects.equals(name, employee.name) && Objects.equals(position, employee.position) && Objects.equals(department, employee.department) && Objects.equals(npp, employee.npp) && Objects.equals(user, employee.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, position, department, npp, user);
     }
 
     public Department getDepartment() {

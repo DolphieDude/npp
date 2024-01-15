@@ -38,6 +38,10 @@ public class Npp {
     public Npp() {
     }
 
+    public Npp(User user) {
+        this.addUser(user);
+    }
+
     public Role getRole() {
         return role;
     }
@@ -72,6 +76,10 @@ public class Npp {
 
     public void addUser(User user) {
         users.add(user);
+    }
+
+    public void removeUser(User user) {
+        users.remove(user);
     }
 
     public void addEmployee(Employee employee) {

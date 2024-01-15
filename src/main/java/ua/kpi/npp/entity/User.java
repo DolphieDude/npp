@@ -78,6 +78,11 @@ public class User {
         this.npp = npp;
     }
 
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+    }
+
     public String getEmail() {
         return email;
     }
