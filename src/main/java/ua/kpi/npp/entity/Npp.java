@@ -21,6 +21,31 @@ public class Npp {
     @OneToMany(mappedBy = "npp")
     private Set<User> users = new LinkedHashSet<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    public Npp(Set<Employee> employees, Role role) {
+        this.employees = employees;
+        this.role = role;
+    }
+
+    public Npp(Employee employee, Role role) {
+        this.addEmployee(employee);
+        this.role = role;
+    }
+
+    public Npp() {
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public Long getId() {
         return id;
     }
@@ -43,6 +68,10 @@ public class Npp {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public void addUser(User user) {
+        users.add(user);
     }
 
     public void addEmployee(Employee employee) {
