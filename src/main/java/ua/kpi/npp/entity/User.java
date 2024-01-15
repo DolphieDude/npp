@@ -13,6 +13,9 @@ public class User {
     @Column(name = "username", length = 45)
     private String username;
 
+    @Column(name = "email", length = 45)
+    private String email;
+
     @Column(name = "password", length = 45)
     private String password;
 
@@ -73,6 +76,14 @@ public class User {
 
     public void setNpp(Npp npp) {
         this.npp = npp;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

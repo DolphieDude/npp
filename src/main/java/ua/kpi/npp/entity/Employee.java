@@ -16,9 +16,6 @@ public class Employee {
     @Column(name = "position", length = 45)
     private String position;
 
-    @Column(name = "email", length = 45)
-    private String email;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
@@ -77,14 +74,6 @@ public class Employee {
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Department getDepartment() {
