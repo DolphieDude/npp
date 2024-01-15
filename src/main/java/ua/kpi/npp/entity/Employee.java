@@ -27,6 +27,26 @@ public class Employee {
     @JoinColumn(name = "npp_id")
     private Npp npp;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User user;
+
+    public Employee() {
+    }
+
+    public Employee(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
     public Npp getNpp() {
         return npp;
     }

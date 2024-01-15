@@ -24,6 +24,17 @@ public class User {
     @JoinColumn(name = "npp_id")
     private Npp npp;
 
+    @Column(name = "cv", length = 300)
+    private String cv;
+
+    public String getCv() {
+        return cv;
+    }
+
+    public void setCv(String cv) {
+        this.cv = cv;
+    }
+
     public Long getId() {
         return id;
     }
