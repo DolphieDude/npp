@@ -1,11 +1,13 @@
 package ua.kpi.npp.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import ua.kpi.npp.entity.Npp;
 import ua.kpi.npp.entity.User;
 import ua.kpi.npp.repository.NppRepository;
 import ua.kpi.npp.repository.UserRepository;
 
+@Transactional
 @Service
 public class UserService {
 
